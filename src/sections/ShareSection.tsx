@@ -336,14 +336,15 @@ const ShareSection = () => {
           </div>
         </div>
 
-        {/* 装饰印章 */}
+        { /* 装饰印章 */ }
         <div className="flex justify-center mt-8">
-          <div className="w-16 h-16 border-2 border-[#c1121f] rounded-sm 
-                        flex items-center justify-center bg-[#f5f5f0]
-                        rotate-12 opacity-80">
-            <span className="text-[#c1121f] text-2xl font-calligraphy vertical-text">
-              吉祥如意
-            </span>
+          <div className="relative w-16 h-16 border-2 border-[#c1121f] rounded-sm flex items-center justify-center bg-[#f5f5f0] rotate-12 opacity-80">
+
+          <span className="absolute top-1 right-1 text-[#c1121f] text-xl font-calligraphy">吉</span>
+          <span className="absolute top-1 left-1 text-[#c1121f] text-xl font-calligraphy">如</span>
+          <span className="absolute bottom-1 right-1 text-[#c1121f] text-xl font-calligraphy">祥</span>
+          <span className="absolute bottom-1 left-1 text-[#c1121f] text-xl font-calligraphy">意</span>
+
           </div>
         </div>
       </div>
