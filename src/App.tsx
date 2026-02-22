@@ -5,6 +5,7 @@ import HeroSection from './sections/HeroSection';
 import BlessingGallery from './sections/BlessingGallery';
 import FortuneDraw from './sections/FortuneDraw';
 import ShareSection from './sections/ShareSection';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
