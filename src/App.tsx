@@ -70,6 +70,7 @@ function App() {
       <footer className="py-8 text-center text-[#8b7355] text-sm font-body">
         <p className="opacity-60">新岁笺 · 愿君岁岁常欢愉</p>
       </footer>
+      <SpeedInsights/>
     </div>
   );
 }
