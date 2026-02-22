@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 中式美学配色 */
+    --cinnabar: 355 78% 56%;
+    --cinnabar-dark: 355 82% 41%;
+    --cinnabar-light: 355 100% 71%;
+    --gold: 51 100% 50%;
+    --gold-dark: 43 74% 49%;
+    --ink: 0 0% 10%;
+    --ink-light: 0 0% 18%;
+    --rice-paper: 40 14% 96%;
+    --cloud-gray: 40 5% 65%;
+    --warm-white: 40 20% 98%;
+    
+    --background: 40 14% 96%;
+    --foreground: 0 0% 10%;
+    --card: 40 20% 98%;
+    --card-foreground: 0 0% 10%;
+    --popover: 40 20% 98%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 355 78% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 10% 90%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 40 10% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 355 78% 56%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
+    background-color: #f5f5f0;
+    overflow-x: hidden;
+  }
+}
+
+/* 书法字体类 */
+.font-calligraphy {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.font-body {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* 宣纸纹理背景 */
+.rice-paper-bg {
+  background-color: #f5f5f0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-blend-mode: soft-light;
+  background-size: 200px 200px;
+}
+
+/* 云纹背景 */
+.cloud-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 50 Q30 30 50 30 Q70 30 80 50 Q90 70 70 70 Q50 70 40 60 Q30 50 20 50' fill='none' stroke='%23daa520' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+}
+
+/* 朱砂红渐变 */
+.cinnabar-gradient {
+  background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+}
+
+/* 暗金渐变 */
+.gold-gradient {
+  background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+}
+
+/* 墨韵动画 */
+@keyframes ink-spread {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+  100% {
+    clip-path: circle(100% at 50% 50%);
+    opacity: 1;
+  }
+}
+
+.ink-reveal {
+  animation: ink-spread 1.8s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+}
+
+/* 灯笼摆动 */
+@keyframes lantern-sway {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.lantern-sway {
+  animation: lantern-sway 4s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+/* 云纹漂移 */
+@keyframes cloud-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 150px 75px;
+  }
+}
+
+.cloud-drift {
+  animation: cloud-drift 20s linear infinite;
+}
+
+/* 呼吸浮动 */
+@keyframes breathe {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* 金粉闪烁 */
+@keyframes gold-sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) translateY(-20px);
+  }
+}
+
+.gold-sparkle {
+  animation: gold-sparkle 2s ease-in-out infinite;
+}
+
+/* 流光效果 */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 215, 0, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* 卡片光泽 */
+.card-gloss {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-gloss::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.card-gloss:hover::before {
+  left: 100%;
+}
+
+/* 卷轴展开 */
+@keyframes scroll-unroll {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.scroll-unroll {
+  animation: scroll-unroll 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+  transform-origin: center;
+}
+
+/* 签筒摇晃 */
+@keyframes tube-shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-5deg);
+  }
+  40% {
+    transform: rotate(5deg);
+  }
+  60% {
+    transform: rotate(-3deg);
+  }
+  80% {
+    transform: rotate(3deg);
+  }
+}
+
+.tube-shake {
+  animation: tube-shake 0.5s ease-in-out;
+}
+
+/* 淡入上升 */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* 墨滴落定缓动 */
+.ease-ink-out {
+  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+/* 笔触缓动 */
+.ease-brush-stroke {
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 按钮金色填充 */
+.btn-gold-fill {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-gold-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+  transition: width 0.4s ease;
+  z-index: -1;
+}
+
+.btn-gold-fill:hover::before {
+  width: 100%;
+}
+
+.btn-gold-fill:hover {
+  color: #1a1a1a;
+}
+
+/* 涟漪效果 */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.4);
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+}
+
+/* 3D 卡片倾斜容器 */
+.tilt-card-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* 竖排文字 */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.3em;
+}
+
+/* 选中文字高亮 */
+::selection {
+  background: rgba(230, 57, 70, 0.3);
+  color: #1a1a1a;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #daa520;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c1121f;
+}
+
+/* 缓慢弹跳动画 */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* 响应式字体 */
+@media (max-width: 768px) {
+  .font-calligraphy {
+    letter-spacing: 0.1em;
+  }
+}

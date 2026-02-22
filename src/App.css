@@ -1,0 +1,64 @@
+/* App specific styles */
+
+/* 确保所有 section 有正确的 z-index */
+section {
+  position: relative;
+}
+
+/* 全局动画优化 */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 硬件加速 */
+.tilt-card,
+.lantern-sway,
+.breathe {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .lantern-sway,
+  .cloud-drift,
+  .breathe,
+  .gold-sparkle {
+    animation: none !important;
+  }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .font-calligraphy {
+    letter-spacing: 0.1em;
+  }
+  
+  .tilt-card-container {
+    perspective: none;
+  }
+  
+  .tilt-card {
+    transform: none !important;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) {
+  .card-gloss::before {
+    display: none;
+  }
+  
+  .btn-gold-fill::before {
+    display: none;
+  }
+}
