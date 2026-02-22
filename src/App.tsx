@@ -5,7 +5,7 @@ import HeroSection from './sections/HeroSection';
 import BlessingGallery from './sections/BlessingGallery';
 import FortuneDraw from './sections/FortuneDraw';
 import ShareSection from './sections/ShareSection';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -70,7 +70,7 @@ function App() {
       <footer className="py-8 text-center text-[#8b7355] text-sm font-body">
         <p className="opacity-60">新岁笺 · 愿君岁岁常欢愉</p>
       </footer>
-      <SpeedInsights/>
+      <Analytics/>
     </div>
   );
 }
